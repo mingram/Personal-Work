@@ -1,0 +1,73 @@
+<html>
+
+<head>
+<script type="text/javascript">
+
+function navigateTo(list) {
+    var newPage = list.options[list.selectedIndex].value
+    if (newPage != "None") {
+        location.href=newPage
+    }
+}
+</script>
+
+<title>Max Ingram's Home Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="style.css" rel="stylesheet" type="text/css" /></head>
+
+<!-- skyblue-87CEEB white-FFFFFF -->
+<!-- Website Designed/Created by Max Ingram -->
+<body>
+
+<img src= images/HPBannerB.jpg> &nbsp; &nbsp; <a href="http://mail.rsgc.on.ca/~mKryshtalskyj/NEW.RSGCBHL/countdown.html" TITLE=RSGCBHL>
+<img src= "images/skater.gif" Border= "0"</a>
+<hr color= white>
+
+<ol type=1>
+
+<li><b>(ICS4U) Computer Graphics using Java 2D and 3D</b></li> <p>
+
+<form>
+<b>Spectroscopy:</b>
+<select onChange="navigateTo(this)">
+<option>Select Option</option>
+<option value="http://loke.as.arizona.edu/~ckulesa/camp/spectroscopy_intro.html">What is Spectroscopy?</option>
+<option value="http://www.scienceofspectroscopy.info/edit/index.php?title=Hubble_Space_Telescope">The Science of Spectroscopy</option>
+<option value="http://spectroscopyonline.findanalytichem.com/spectroscopy/News/Spectroscopy-in-Space-Hubble-and-the-Cosmic-Origin/ArticleStandard/Article/detail/598407">Spectroscopy in Space</option>
+
+</select>
+</form>
+
+  <li><b>(TEE2O) Hardware and Software Engineering</b></li><p>
+
+<form>
+<select onChange="navigateTo(this)">
+<option>Select Option</option>
+<option value="http://mail.rsgc.on.ca/~mingram/Javadoc/TreasureHunter/doc/">TreasureHunter: Documentation</option>
+<option value="http://mail.rsgc.on.ca/~mingram/Javadoc/Castles1/doc/">Castles: Documentation</option>
+<option value="images/GuardBotTemplate.jpg">Castles: UML</option>
+<option value="http://mail.rsgc.on.ca/~mingram/Javadoc/Soccer-Drill/doc/">SoccerDrill: Documentation</option>
+
+</select>
+</form>
+
+<p>
+
+<li><b>(BTT1O) HTML and JavaScript</b></li>
+<br>
+
+<form>
+<select onChange="navigateTo(this)">
+<option>Select Option</option>
+<option value="html/BMI.html">Medical Calculator</option>
+<option value="html/2007ExamTimetable.html">2007 Exam Timetable</option>
+<option value="html/entities.html">Entities</option>
+<option value="html/TimeTable.html">Timetable</option>
+<option value="html/VacationDaysMemo.html">Vacation Days Memo</option>
+<option value="html/BookList.html">Grade 10 Book List</option>
+<option value="html/MyJavaScript.html">My Javascript</option>
+</select>
+</form>
+
+</body>
+</html>

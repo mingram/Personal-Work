@@ -1,0 +1,130 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.*;
+
+
+
+public class PascalIterative extends JApplet implements ActionListener{
+
+	public static void main(String [] args) {
+		JFrame frame = new JFrame();		
+		frame.setTitle("Pascal: Iterative");
+	    JApplet applet = new PascalIterative();
+	    applet.init();	
+	    frame.getContentPane().add(applet);
+	    frame.pack();
+	    frame.setVisible(true);
+	    
+	    frame.addWindowListener(new WindowAdapter() {
+		      public void windowClosing(WindowEvent ev) {
+			        System.exit(0);
+			      }
+			    });
+	}
+
+	
+	public void init() {
+		JPanel panel = new PascalPanel();
+		getContentPane().add(panel);
+
+		  JMenuBar mb = new JMenuBar();
+		  setJMenuBar(mb);
+		  JMenu menu = new JMenu("File");
+		  mb.add(menu);
+		  JMenuItem mi = new JMenuItem("Exit");
+		  menu.add(mi);
+		  mi.addActionListener(this);
+	}
+	
+
+
+public class PascalPanel extends JPanel {
+
+	String input,line;
+	private int y,r,x,width,height,n;
+	
+	public PascalPanel(){
+		
+	    setBackground(Color.white); 
+	    input = JOptionPane.showInputDialog("Enter number of rows (1-20)", 10);
+	    height = (int)(Integer.parseInt(input)*30);
+	    width =  (int)(Integer.parseInt(input)*60);
+	    setPreferredSize(new Dimension(width, height));
+	}
+	
+	
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+	    Graphics2D g2 = (Graphics2D) g;
+	    Font courier = new Font("Courier",0,14);
+	    g2.setFont(courier);
+	   
+	    x=0;
+	   
+	    
+	    r=Integer.parseInt(input);
+	    y=15;
+	    
+	    int prev[] = new int [r+1];
+	    int temp[] = new int [0];
+	  
+	    
+	    for (int i = 0; i < r; i++) {
+	    	
+	    	x=0;
+	    	
+	    	
+	    	
+	    	for (int c=0; c <= i; c++) {
+	    		
+	    	
+	    		
+	    		if(c==0 || c==i){
+	    			
+	    			n=1;
+	    			line=""+n;
+	    			prev[c]=n;
+
+		    	}
+		    	
+		    	else {
+		    		
+		    		temp[c] = (prev[c-1]-prev[c]) + prev[c];
+		    		
+		    		n=temp[c];
+		    		line=""+n;
+		    	
+		    	}
+	    		
+	    		temp=prev;
+	    		g2.drawString(line,x,y);
+	    		x+=55;
+	    		
+	    		
+	    		
+	    	}
+	    	
+	    		
+
+	    	y+=25;
+	    	
+	    }  
+	}
+	
+	
+}
+
+	public void actionPerformed(ActionEvent ev) {
+	String command = ev.getActionCommand();
+    if ("Exit".equals(command)) {
+      System.exit(0);
+    }
+	}
+}
+	
+
+

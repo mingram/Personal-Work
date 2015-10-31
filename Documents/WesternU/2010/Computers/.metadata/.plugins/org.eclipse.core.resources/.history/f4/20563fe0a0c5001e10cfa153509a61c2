@@ -1,0 +1,110 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.*;
+
+
+
+public class PascalIterative extends JApplet implements ActionListener{
+
+	public static void main(String [] args) {
+		JFrame frame = new JFrame();		
+		frame.setTitle("Pascal: Iterative");
+	    JApplet applet = new PascalIterative();
+	    applet.init();	
+	    frame.getContentPane().add(applet);
+	    frame.pack();
+	    frame.setVisible(true);
+	    
+	    frame.addWindowListener(new WindowAdapter() {
+		      public void windowClosing(WindowEvent ev) {
+			        System.exit(0);
+			      }
+			    });
+	}
+
+	
+	public void init() {
+		JPanel panel = new PascalPanel();
+		getContentPane().add(panel);
+
+		  JMenuBar mb = new JMenuBar();
+		  setJMenuBar(mb);
+		  JMenu menu = new JMenu("File");
+		  mb.add(menu);
+		  JMenuItem mi = new JMenuItem("Exit");
+		  menu.add(mi);
+		  mi.addActionListener(this);
+	}
+	
+
+
+public class PascalPanel extends JPanel {
+
+	String input;
+	private int y,r,x,width,height;
+	
+	public PascalPanel(){
+		
+	    setBackground(Color.white); 
+	    input = JOptionPane.showInputDialog("Enter number of rows (1-30)", 10);
+	    height = (int)(Integer.parseInt(input)*30);
+	    width =  (int)(Integer.parseInt(input)*60);
+	    setPreferredSize(new Dimension(width, height));
+	}
+	
+	
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+	    Graphics2D g2 = (Graphics2D) g;
+	    Font courier = new Font("Courier",0,14);
+	    g2.setFont(courier);
+	   
+	    x=0;
+	    r=Integer.parseInt(input);
+	    y=15;
+
+	    
+	    for (int i = 0; i < r+1; i++) {
+	    	
+	    	x=0;
+	    	
+	    	
+	    	for (int c = 0; c <= i; c++) {
+	    
+	    	String line = new String(Integer.toString(p(i,c)));
+    		g2.drawString(line,x,y);
+	    	x+=55;
+	    		
+	    	}
+	    	
+	    	y+=25;
+	    	
+	    }  
+	}
+	
+	public int p(int r, int c){
+
+		//basis
+		if(c==0 || c==r){
+			return 1;
+		}
+		//induction
+		return p(r-1,c-1)+p(r-1,c);
+		
+	}
+}
+
+	public void actionPerformed(ActionEvent ev) {
+	String command = ev.getActionCommand();
+    if ("Exit".equals(command)) {
+      System.exit(0);
+    }
+	}
+}
+	
+
+

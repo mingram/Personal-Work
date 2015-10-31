@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Josephus</title>
+<!--<script type="text/javascript" src="Ring.js"></script> -->
+<script type="text/javascript">
+
+function ListNode(i) {
+  this.value = i;
+  this.next = null;
+  this.getValue = function () { return this.value; };
+  this.setNext = function (node) { this.next = node; };
+}
+
+function Ring() {
+  this.head = null;
+  this.last = null;
+  this.add = addToRing;
+  this.nodeCount=0;
+  this.size = function () { return this.nodeCount; };
+  this.toString = toStr;
+  str='';
+}
+
+function addToRing(node) {
+
+  if (this.head == null) {
+	this.head = node;
+	this.last = node;
+	node.setNext(node);
+	
+  }
+  else {	
+	this.last=node;
+	node.setNext(node);
+  }
+	str+=" "+node.value;
+	this.nodeCount++;
+}
+
+function toStr() {
+	return str;
+}
+
+</script>
+</head>
+<body>
+<h2><a href="http://www.cut-the-knot.org/recurrence/flavius.shtml">The Josephus Flavius Game</a></h2>
+<p>This activity offers a chance to consider  how a <b><i>Javascript</i></b> <i>Collection
+  Framework</i> could be modelled after the <i>Java Collection Framework</i>. I think it's
+  highly doable. View the source code of this file to get an idea of how this
+  might be accomplished.</p>
+
+<script type="text/javascript">
+
+/*
+node = new ListNode(1);
+document.write(node.value.toString()+"<br>");
+var ring = new Ring();
+*/
+
+ var howMany = parseInt(prompt("Enter the number of soldiers in the Ring","10"));
+ var ring = new Ring();
+
+ for (i=0; i<10; i++) {
+  node = new ListNode(i);
+  document.write("Adding "+i+"<br>");
+  ring.add(node);
+ }
+
+ document.write("Ring [Size: "+ring.size()+"]: "+ring.toString()+"<br>");
+
+
+</script>
+
+</body>
