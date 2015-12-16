@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename compilation unit &apos;Playlist.java&apos; to &apos;PlayList.java&apos;&#x0A;- Original project: &apos;iTunes&apos;&#x0A;- Original element: &apos;Playlist.java&apos;&#x0A;- Renamed element: &apos;PlayList.java&apos;" description="Rename compilation unit &apos;Playlist.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;{Playlist.java" name="PlayList.java" references="false" stamp="1264961397043" version="1.0"/>
-</session>
